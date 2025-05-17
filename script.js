@@ -84,3 +84,37 @@ console.log(discountedBooks);
 const fullPricedBook = discountedBooks.find(book => book.price % 1 === 0)
 
 console.log(fullPricedBook);
+
+
+//Creare un array (authors) che contiene gli autori dei libri.
+
+const authors = books.map(book => book.author)
+console.log(authors);
+
+//Crea una variabile booleana (areAuthorsAdults) per verificare se gli autori sono tutti maggiorenni.
+
+const areAuthorsAdults = authors.every(author => author.age >= 18)
+console.log(areAuthorsAdults);
+
+//Ordina l’array authors in base all’età, senza creare un nuovo array. (se areAuthorsAdult è true, ordina in ordine crescente, altrimenti in ordine decrescente)
+
+authors.sort((a, b) => {
+    return b.age - a.age
+})
+
+//Creare un array (ages) che contiene le età degli autori dei libri.
+
+const ages = authors.map(author => author.age)
+console.log(ages);
+
+//Calcola la somma delle età (agesSum) usando reduce.
+
+const agesSum = ages.reduce((acc, age) => {
+    return acc + age
+}, 0)
+
+console.log(agesSum);
+
+//Stampa in console l’età media degli autori dei libri.
+
+console.log(agesSum / authors.length);
